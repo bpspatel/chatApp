@@ -28,12 +28,12 @@ io.sockets.on('connection', function (socket) {
     });
     
     // new user    
-    socket.on('new user', function(data, callback){
-        console.log('new user');
-        callback(true);
+    socket.on('new user', function(data, callback){ 
         socket.username = data;
         users.push(socket.username);
         updateUsernames();
+        console.log('new users=',users);
+        callback(true);
     });
     
     function updateUsernames(){
